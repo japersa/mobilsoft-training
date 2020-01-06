@@ -1,0 +1,12 @@
+<form (submit)="addTodo($event)">
+  <input type="text" [(ngModel)]="newTodo" id="textTodo" name="textTodo">
+  <button type="submit">Add todo</button>
+</form>
+
+
+<ul>
+  <li *ngFor="let todo of newTodoList; let i=index" [ngClass]="{'taskCompleted': todo.completed}">
+    <input type="checkbox" (click)="onCompleted(i)">
+    {{ todo.name }} <a (click)="onEdit(i)">Editar</a> <a (click)="onDeleted(i)">Eliminar</a>
+  </li>
+</ul>
